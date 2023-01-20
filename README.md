@@ -24,3 +24,5 @@ Also, make sure to Star and Watch this repo on Github so you get alerts whenever
 2. [Unity Scripting Reference](https://docs.unity3d.com/ScriptReference/index.html)
 3. [Creating and Using Scripts](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html)
 4. [Variables and the Inspector](https://docs.unity3d.com/Manual/VariablesAndTheInspector.html)
+5. [Introduction to Rigidbody Physiscs](https://docs.unity3d.com/Manual/RigidbodiesOverview.html)
+6. [Rigidbody.Velocity](https://docs.unity3d.com/ScriptReference/Rigidbody-velocity.html)
