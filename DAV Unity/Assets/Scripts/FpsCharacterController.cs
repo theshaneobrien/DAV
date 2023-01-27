@@ -9,8 +9,11 @@ public class FpsCharacterController : MonoBehaviour
     private float verticalInput = 0.0f;
     private float horizontalInput = 0.0f;
     private float mouseInputX = 0.0f;
+    private float mouseInputY = 0.0f;
 
     private Rigidbody playerRb;
+
+    [SerializeField] private Transform cameraTransform;
     
     // Start is called before the first frame update
     private void Start()
@@ -25,6 +28,7 @@ public class FpsCharacterController : MonoBehaviour
         GetMouseInputs();
         MoveCharacter();
         RotateCharacter();
+        RotateCamera();
     }
 
     private void GetInputs()
@@ -36,6 +40,7 @@ public class FpsCharacterController : MonoBehaviour
     private void GetMouseInputs()
     {
         mouseInputX = Input.GetAxis("Mouse X");
+        mouseInputY = Input.GetAxis("Mouse Y");
     }
 
     private void MoveCharacter()
@@ -50,5 +55,12 @@ public class FpsCharacterController : MonoBehaviour
     private void RotateCharacter()
     {
         this.transform.Rotate(new Vector3(0.0f, mouseInputX, 0.0f));
+    }
+
+    private void RotateCamera()
+    {
+        //Limit the Range the camera can pitch
+        // Mouse movement sensitivity
+        cameraTransform.Rotate(new Vector3(mouseInputY * -1, 0.0f, 0.0f));
     }
 }
