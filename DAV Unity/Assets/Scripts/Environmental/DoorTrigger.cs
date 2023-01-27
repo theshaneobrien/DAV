@@ -15,19 +15,27 @@ public class DoorTrigger : MonoBehaviour
     
     private void OnTriggerEnter(Collider thingInsideTrigger)
     {
-        Debug.Log("We have something inside the trigger");
-        Debug.Log("The thing is " + thingInsideTrigger.name);
-        
-        walkwayDoor.OpenDoor();
+        if (thingInsideTrigger.tag == "Player")
+        {
+            GameStateManager.Instance.GetUiManager().SetContextText("Press E to open the Door");
+            GameStateManager.Instance.SetCurrentContextInteractable(true, walkwayDoor);
+        }
     }
 
     private void OnTriggerStay(Collider thingInsideTrigger)
     {
-        //This will constantly fire while something is in the trigger
+        if (thingInsideTrigger.tag == "Player")
+        {
+            
+        }
     }
 
     private void OnTriggerExit(Collider thingInsideTrigger)
     {
-        Debug.Log("Something left the trigger");
+        if (thingInsideTrigger.tag == "Player")
+        {
+            GameStateManager.Instance.GetUiManager().HideText();
+            GameStateManager.Instance.SetCurrentContextInteractable(false, null);
+        }
     }
 }
