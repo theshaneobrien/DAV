@@ -8,8 +8,13 @@ public class GameStateManager : MonoBehaviour
 
     private GamePlayUIManager uiManager;
 
+    private bool isGameOver;
+
     private bool canInteractWithSomething;
     private DoorBehaviour doorWeAreCurrentlyAt;
+
+    private float gameTimer;
+    [SerializeField] private int maxGameTime = 30;
 
     private void Awake()
     {
@@ -32,6 +37,19 @@ public class GameStateManager : MonoBehaviour
     private void Update()
     {
         ContextSensitiveButtonPress();
+        
+        // Delta Time = time it takes to render a single frame
+        gameTimer = gameTimer + Time.deltaTime * 4;
+        
+        //This checks if our time limit was hit
+        if (gameTimer >= maxGameTime)
+        {
+            //We need to tell the player they lost!
+            uiManager.GameOverUI();
+            isGameOver = true;
+        }
+        
+        uiManager.SetGamePlayTimerUI(FormatTimer());
     }
 
     public GamePlayUIManager GetUiManager()
@@ -65,5 +83,19 @@ public class GameStateManager : MonoBehaviour
                 Debug.Log("We cannot interact yet");
             }
         }
+    }
+
+    public bool GetIsGameOver()
+    {
+        return isGameOver;
+    }
+
+    private string FormatTimer()
+    {
+        //TODO: Fix the seconds so they dont go above 60
+        int minutes = (int)gameTimer / 60;
+        int seconds = (int)gameTimer;
+        
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

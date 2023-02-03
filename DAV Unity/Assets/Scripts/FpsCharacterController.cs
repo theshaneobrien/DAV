@@ -24,12 +24,15 @@ public class FpsCharacterController : MonoBehaviour
 
     // Update is called once per frame
     private void Update()
-    { 
-        GetInputs();
-        GetMouseInputs();
-        MoveCharacter();
-        RotateCharacter();
-        RotateCamera();
+    {
+        if (GameStateManager.Instance.GetIsGameOver() == false)
+        {
+            GetInputs();
+            GetMouseInputs();
+            MoveCharacter();
+            RotateCharacter();
+            RotateCamera();
+        }
     }
 
     private void GetInputs()
@@ -63,5 +66,6 @@ public class FpsCharacterController : MonoBehaviour
         //Limit the Range the camera can pitch
         // Mouse movement sensitivity
         cameraTransform.Rotate(new Vector3(mouseInputY * -1, 0.0f, 0.0f));
+        //cameraTransform.RotateAround(cameraTransform.position, Vector3.right, mouseInputY * -1);
     }
 }
