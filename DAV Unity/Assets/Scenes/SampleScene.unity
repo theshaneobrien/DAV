@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 171998479}
   - component: {fileID: 171998481}
   - component: {fileID: 171998480}
+  - component: {fileID: 171998482}
   m_Layer: 5
   m_Name: AnimatedImage
   m_TagString: Untagged
@@ -411,7 +412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -910400140, guid: d521b54405641cf4191adcb66d26fe40, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -429,6 +430,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171998478}
   m_CullTransparentMesh: 1
+--- !u!95 &171998482
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171998478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce09a2e9aefa91e4abce76415eca585a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &172650660
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &172650661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2216,7 +2237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacbcd891a4dc5d47ac09bcd151f0618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxGameTime: 30
+  maxGameTime: 180
 --- !u!1 &1632290642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,7 +3224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2114152842
 RectTransform:
   m_ObjectHideFlags: 0

@@ -113,7 +113,7 @@ TextureImporter:
         width: 74
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,7 +134,7 @@ TextureImporter:
         width: 74
         height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,7 +155,7 @@ TextureImporter:
         width: 70
         height: 75
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,7 +176,7 @@ TextureImporter:
         width: 68
         height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,7 +197,7 @@ TextureImporter:
         width: 64
         height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,6 +205,111 @@ TextureImporter:
       bones: []
       spriteID: 7f71f836c85ae0340a51d5cacdd400aa
       internalID: -1964580893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LinkAnimSprite_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 270
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72882fd734aad948973b40cf52f1863
+      internalID: 373866788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LinkAnimSprite_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 80
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af832913d38c170418bb59303b5f6875
+      internalID: 1145339113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LinkAnimSprite_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 268
+        width: 69
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3497248d553924f44851bfddcebe6b04
+      internalID: 543296986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LinkAnimSprite_8
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 139
+        width: 175
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e79f1a173ebe74ba61635ac2cf46cd
+      internalID: 379534432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LinkAnimSprite_9
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 170
+        width: 42
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e704eb9b5bde81a428cabbfc7367aa16
+      internalID: 438018950
       vertices: []
       indices: 
       edges: []
@@ -222,8 +327,13 @@ TextureImporter:
     nameFileIdTable:
       LinkAnimSprite_2: -550172075
       LinkAnimSprite_3: 883915446
+      LinkAnimSprite_7: 543296986
+      LinkAnimSprite_9: 438018950
       LinkAnimSprite_0: -910400140
+      LinkAnimSprite_5: 373866788
       LinkAnimSprite_4: -1964580893
+      LinkAnimSprite_8: 379534432
+      LinkAnimSprite_6: 1145339113
       LinkAnimSprite_1: -128407741
   spritePackingTag: 
   pSDRemoveMatte: 0
