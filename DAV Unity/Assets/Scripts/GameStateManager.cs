@@ -14,7 +14,17 @@ public class GameStateManager : MonoBehaviour
     private DoorBehaviour doorWeAreCurrentlyAt;
 
     private float gameTimer;
-    [SerializeField] private int maxGameTime = 30;
+    [SerializeField] private int maxGameTime = 10;
+    
+    //These are the variables related to the puzzle state
+    private bool puzzleSolved = false;
+
+    [SerializeField] private List<Transform> puzzlePieces = new List<Transform>();
+    [SerializeField] private List<bool> puzzlePiecesState = new List<bool>();
+
+    [SerializeField] private GameObject keyGO;
+    private bool playerHasKey = false;
+    
 
     private void Awake()
     {
@@ -32,14 +42,24 @@ public class GameStateManager : MonoBehaviour
     private void Start()
     {
         uiManager = this.GetComponent<GamePlayUIManager>();
+
+        foreach (var puzzlePiece in puzzlePieces)
+        {
+            puzzlePiecesState.Add(false);
+        }
     }
 
     private void Update()
     {
         ContextSensitiveButtonPress();
         
+        ProcessTimer();
+    }
+
+    private void ProcessTimer()
+    {
         // Delta Time = time it takes to render a single frame
-        gameTimer = gameTimer + Time.deltaTime * 4;
+        gameTimer = gameTimer + Time.deltaTime;
         
         //This checks if our time limit was hit
         if (gameTimer >= maxGameTime)
@@ -50,17 +70,6 @@ public class GameStateManager : MonoBehaviour
         }
         
         uiManager.SetGamePlayTimerUI(FormatTimer());
-    }
-
-    public GamePlayUIManager GetUiManager()
-    {
-        return uiManager;
-    }
-
-    public void SetCurrentContextInteractable(bool canInteract, DoorBehaviour doorToInteractWith)
-    {
-        canInteractWithSomething = canInteract;
-        doorWeAreCurrentlyAt = doorToInteractWith;
     }
 
     private void ContextSensitiveButtonPress()
@@ -78,16 +87,59 @@ public class GameStateManager : MonoBehaviour
                     Debug.Log("We never attached a door to this trigger");
                 }
             }
-            else if (canInteractWithSomething == false)
+            CheckPuzzleRotation();
+        }
+    }
+
+    private void CheckPuzzleRotation()
+    {
+        for (int i = 0; i < puzzlePieces.Count; i++)
+        {
+            Transform puzzlePiece = puzzlePieces[i];
+            if (puzzlePiece.transform.rotation.eulerAngles.y == 0)
             {
-                Debug.Log("We cannot interact yet");
+                puzzlePiecesState[i] = true;
+                CheckIfPuzzleIsSolved();
             }
+            else
+            {
+                puzzlePiecesState[i] = false;
+            }
+        }
+    }
+
+    private void CheckIfPuzzleIsSolved()
+    {
+        int countOfSolvedPieces = 0;
+        foreach (bool puzzleState in puzzlePiecesState)
+        {
+            Debug.Log(countOfSolvedPieces);
+            if (puzzleState == true)
+            {
+                countOfSolvedPieces += 1;
+            }
+        }
+
+        if (countOfSolvedPieces >= 3)
+        {
+            keyGO.SetActive(true);
         }
     }
 
     public bool GetIsGameOver()
     {
         return isGameOver;
+    }
+
+    public GamePlayUIManager GetUiManager()
+    {
+        return uiManager;
+    } 
+    
+    public void SetCurrentContextInteractable(bool canInteract, DoorBehaviour doorToInteractWith)
+    {
+        canInteractWithSomething = canInteract;
+        doorWeAreCurrentlyAt = doorToInteractWith;
     }
 
     private string FormatTimer()
