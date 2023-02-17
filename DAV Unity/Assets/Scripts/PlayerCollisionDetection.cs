@@ -8,12 +8,10 @@ public class PlayerCollisionDetection : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Our Player Collision Script is active");
     }
     
     private void OnCollisionEnter(Collision thingWeHit)
     {
-        Debug.Log("We hit a thing " + thingWeHit.collider.name);
         
         //Play Sounds of thing hitting other thing
     }
@@ -29,6 +27,5 @@ public class PlayerCollisionDetection : MonoBehaviour
 
     private void OnCollisionExit(Collision thingWeHit)
     {
-        Debug.Log("We are no longer hitting " + thingWeHit.collider.name);
     }
 }

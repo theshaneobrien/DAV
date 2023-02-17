@@ -12,6 +12,7 @@ public class GamePlayUIManager : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI contextSensitiveText;
     [SerializeField] private TextMeshProUGUI gamePlayTimerText;
+    [SerializeField] private TextMeshProUGUI gameOverStateText;
 
     [SerializeField] private Button retryLevelButton;
     [SerializeField] private Button quitButton;
@@ -50,8 +51,19 @@ public class GamePlayUIManager : MonoBehaviour
 
     public void GameOverUI()
     {
+        
         gamePlayPanel.SetActive(false);
         gameOverPanel.SetActive(true);
+
+        if (GameStateManager.Instance.GetIsGameOver() == true && GameStateManager.Instance.GetPlayerWon() == false)
+        {
+            gameOverStateText.text = "You failed to escape!";
+        }
+        else
+        {
+            gameOverStateText.text = "You won the game!";
+        }
+            
     }
 
     private void RetryLevel()

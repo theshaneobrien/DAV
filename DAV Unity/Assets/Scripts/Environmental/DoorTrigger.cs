@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DoorTrigger : MonoBehaviour
 {
-
-    [SerializeField] private DoorBehaviour walkwayDoor;
+    [SerializeField] private DoorBehaviour door;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class DoorTrigger : MonoBehaviour
         if (thingInsideTrigger.tag == "Player")
         {
             GameStateManager.Instance.GetUiManager().SetContextText("Press E to open the Door");
-            GameStateManager.Instance.SetCurrentContextInteractable(true, walkwayDoor);
+            GameStateManager.Instance.SetCurrentContextInteractable(true, door);
         }
     }
 

@@ -9,6 +9,7 @@ public class GameStateManager : MonoBehaviour
     private GamePlayUIManager uiManager;
 
     private bool isGameOver;
+    private bool playerWon = false;
 
     private bool canInteractWithSomething;
     private DoorBehaviour doorWeAreCurrentlyAt;
@@ -90,6 +91,7 @@ public class GameStateManager : MonoBehaviour
                     Debug.Log("We never attached a door to this trigger");
                 }
             }
+            
             CheckPuzzleRotation();
         }
     }
@@ -137,9 +139,48 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    public bool CheckInventory(string itemToLookFor)
+    {
+        if (playerInventory.ContainsKey(itemToLookFor))
+        {
+            if (playerInventory[itemToLookFor] >= 1)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void ConsumeItem(string itemToConsume)
+    {
+        if (playerInventory.ContainsKey(itemToConsume))
+        {
+            if (playerInventory[itemToConsume] >= 1)
+            {
+                playerInventory[itemToConsume] = playerInventory[itemToConsume] - 1;
+            }
+        }
+        
+        Debug.Log("We have " + playerInventory[itemToConsume] + " " + itemToConsume);
+    }
+
     public bool GetIsGameOver()
     {
         return isGameOver;
+    }
+
+    public void SetPlayerWon()
+    {
+        playerWon = true;
+        isGameOver = true;
+        
+        uiManager.GameOverUI();
+    }
+
+    public bool GetPlayerWon()
+    {
+        return playerWon;
     }
 
     public GamePlayUIManager GetUiManager()

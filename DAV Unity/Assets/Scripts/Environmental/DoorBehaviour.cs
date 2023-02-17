@@ -9,6 +9,9 @@ public class DoorBehaviour : MonoBehaviour
     [SerializeField] private float distanceToOpen;
     [SerializeField] private Animator doorAnimator;
 
+    [SerializeField] private bool requiresItem = false;
+    [SerializeField] private string itemRequiredToOpen;
+
     private void Start()
     {
         doorStartingPosition = this.transform.position;
@@ -16,9 +19,27 @@ public class DoorBehaviour : MonoBehaviour
     
     public void OpenDoor()
     {
-        Debug.Log("Door is open! Promise!");
-
-        this.transform.position = new Vector3(doorStartingPosition.x + distanceToOpen, doorStartingPosition.y, doorStartingPosition.z);
-        doorAnimator.SetTrigger("OpenTheDoor");
+        if (requiresItem == false)
+        {
+            this.transform.position = new Vector3(doorStartingPosition.x + distanceToOpen, doorStartingPosition.y,
+                doorStartingPosition.z);
+            doorAnimator.SetTrigger("OpenTheDoor");
+        }
+        else
+        {
+            if (GameStateManager.Instance.CheckInventory(itemRequiredToOpen) == true)
+            {
+                this.transform.position = new Vector3(doorStartingPosition.x + distanceToOpen, doorStartingPosition.y,
+                    doorStartingPosition.z);
+                doorAnimator.SetTrigger("OpenTheDoor");
+                GameStateManager.Instance.ConsumeItem(itemRequiredToOpen);
+            }
+            else
+            {
+                GameStateManager.Instance.GetUiManager().SetContextText("You need a key to open this door");    
+            }
+            
+            
+        }
     }
 }
