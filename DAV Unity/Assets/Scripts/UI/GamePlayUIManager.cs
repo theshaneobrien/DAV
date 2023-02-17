@@ -17,6 +17,8 @@ public class GamePlayUIManager : MonoBehaviour
     [SerializeField] private Button retryLevelButton;
     [SerializeField] private Button quitButton;
 
+    [SerializeField] private Image keyUIImage;
+
     private void Start()
     {
         HideText();
@@ -64,6 +66,16 @@ public class GamePlayUIManager : MonoBehaviour
             gameOverStateText.text = "You won the game!";
         }
             
+    }
+
+    public void NoKeyHeld()
+    {
+        keyUIImage.color = Color.black;
+    }
+
+    public void KeyHeld()
+    {
+        keyUIImage.color = Color.white;
     }
 
     private void RetryLevel()

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerRaycast : MonoBehaviour
 {
+    [SerializeField] private float raycastDistance = 1;
     
     
     // Start is called before the first frame update
@@ -23,9 +24,9 @@ public class PlayerRaycast : MonoBehaviour
     {
         RaycastHit hitObject;
 
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 100, Color.red);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * raycastDistance, Color.red);
         
-        if (Physics.Raycast(this.transform.position, this.transform.forward, out hitObject, 100))
+        if (Physics.Raycast(this.transform.position, this.transform.forward, out hitObject, raycastDistance))
         {
             if (hitObject.collider.CompareTag("RayCastInteractable"))
             {

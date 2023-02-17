@@ -50,7 +50,7 @@ public class GameStateManager : MonoBehaviour
         
         playerInventory.Add("Key", 0);
         
-        Debug.Log("We have " + playerInventory["Key"] + " Keys");
+        uiManager.NoKeyHeld();
     }
 
     private void Update()
@@ -85,10 +85,6 @@ public class GameStateManager : MonoBehaviour
                 if (doorWeAreCurrentlyAt != null)
                 {
                     doorWeAreCurrentlyAt.OpenDoor();
-                }
-                else if (doorWeAreCurrentlyAt == null)
-                {
-                    Debug.Log("We never attached a door to this trigger");
                 }
             }
             
@@ -135,7 +131,8 @@ public class GameStateManager : MonoBehaviour
         if (playerInventory.ContainsKey(itemToAdd))
         {
             playerInventory[itemToAdd] = playerInventory[itemToAdd] + 1;
-            Debug.Log("We have " + playerInventory[itemToAdd] + " " + itemToAdd);
+
+            CheckInventory(itemToAdd);
         }
     }
 
@@ -145,7 +142,22 @@ public class GameStateManager : MonoBehaviour
         {
             if (playerInventory[itemToLookFor] >= 1)
             {
+                if (itemToLookFor == "Key")
+                {
+                    uiManager.KeyHeld();
+                }
+                else
+                {
+                    uiManager.NoKeyHeld();
+                }
                 return true;
+            }
+            else
+            {
+                if (itemToLookFor == "Key")
+                {
+                    uiManager.NoKeyHeld();
+                }
             }
         }
 
@@ -159,10 +171,11 @@ public class GameStateManager : MonoBehaviour
             if (playerInventory[itemToConsume] >= 1)
             {
                 playerInventory[itemToConsume] = playerInventory[itemToConsume] - 1;
+                
+                CheckInventory(itemToConsume);
             }
         }
         
-        Debug.Log("We have " + playerInventory[itemToConsume] + " " + itemToConsume);
     }
 
     public bool GetIsGameOver()
