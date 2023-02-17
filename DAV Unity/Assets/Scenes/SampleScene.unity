@@ -267,7 +267,6 @@ GameObject:
   - component: {fileID: 43049550}
   - component: {fileID: 43049553}
   - component: {fileID: 43049552}
-  - component: {fileID: 43049551}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -290,19 +289,6 @@ Transform:
   m_Father: {fileID: 369080311}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -49.925, y: 0, z: -47.471}
---- !u!65 &43049551
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43049549}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &43049552
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -364,7 +350,6 @@ GameObject:
   - component: {fileID: 75729704}
   - component: {fileID: 75729707}
   - component: {fileID: 75729706}
-  - component: {fileID: 75729705}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -387,19 +372,6 @@ Transform:
   m_Father: {fileID: 419548994}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -49.925, y: 0, z: -47.471}
---- !u!65 &75729705
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75729703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &75729706
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -819,7 +791,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286698758
 GameObject:
@@ -832,7 +804,6 @@ GameObject:
   - component: {fileID: 286698759}
   - component: {fileID: 286698762}
   - component: {fileID: 286698761}
-  - component: {fileID: 286698760}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -855,19 +826,6 @@ Transform:
   m_Father: {fileID: 2140950629}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &286698760
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286698758}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &286698761
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1054,7 +1012,7 @@ GameObject:
   - component: {fileID: 369080308}
   - component: {fileID: 369080312}
   m_Layer: 0
-  m_Name: PuzzleBase
+  m_Name: PuzzleBase Bottom
   m_TagString: RayCastInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1130,7 +1088,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369080307}
-  m_LocalRotation: {x: -0, y: -0.60783964, z: -0, w: 0.7940598}
+  m_LocalRotation: {x: 0, y: 0.13052616, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 1.3596985, y: 1, z: -27.496128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1138,8 +1096,8 @@ Transform:
   - {fileID: 450009996}
   - {fileID: 43049550}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: -74.867, z: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 15, z: 0}
 --- !u!114 &369080312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,6 +1110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb2db5c460e67347a2c907c08337e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Puzzle Piece
+  interactionVerb: Rotate
+  yRotation: 75
 --- !u!1 &409923162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1245,7 @@ GameObject:
   - component: {fileID: 419548991}
   - component: {fileID: 419548995}
   m_Layer: 0
-  m_Name: PuzzleBase (1)
+  m_Name: PuzzleBase Middle
   m_TagString: RayCastInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1360,7 +1321,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419548990}
-  m_LocalRotation: {x: -0, y: 0.98945993, z: -0, w: 0.144807}
+  m_LocalRotation: {x: 0, y: 0.60876137, z: 0, w: 0.7933534}
   m_LocalPosition: {x: 1.3596985, y: 2.082, z: -27.496128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1368,8 +1329,8 @@ Transform:
   - {fileID: 832914013}
   - {fileID: 75729704}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 163.348, z: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}
 --- !u!114 &419548995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,6 +1343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb2db5c460e67347a2c907c08337e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Puzzle Piece
+  interactionVerb: Rotate
+  yRotation: 75
 --- !u!1 &450009995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,7 +1357,6 @@ GameObject:
   - component: {fileID: 450009996}
   - component: {fileID: 450009999}
   - component: {fileID: 450009998}
-  - component: {fileID: 450009997}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1416,19 +1379,6 @@ Transform:
   m_Father: {fileID: 369080311}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &450009997
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450009995}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &450009998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1790,7 +1740,6 @@ GameObject:
   - component: {fileID: 587383330}
   - component: {fileID: 587383333}
   - component: {fileID: 587383332}
-  - component: {fileID: 587383331}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1813,19 +1762,6 @@ Transform:
   m_Father: {fileID: 2140950629}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -49.925, y: 0, z: -47.471}
---- !u!65 &587383331
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587383329}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &587383332
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2251,7 +2187,6 @@ GameObject:
   - component: {fileID: 832914013}
   - component: {fileID: 832914016}
   - component: {fileID: 832914015}
-  - component: {fileID: 832914014}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -2274,19 +2209,6 @@ Transform:
   m_Father: {fileID: 419548994}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &832914014
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832914012}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &832914015
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3216,7 +3138,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1597312929
 MonoBehaviour:
@@ -3231,6 +3153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxGameTime: 180
+  puzzlePieces:
+  - {fileID: 369080311}
+  - {fileID: 419548994}
+  - {fileID: 2140950629}
+  puzzlePiecesState: 
+  keyGO: {fileID: 1716166026}
 --- !u!1 &1632290642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,13 +3525,14 @@ GameObject:
   - component: {fileID: 1716166029}
   - component: {fileID: 1716166028}
   - component: {fileID: 1716166027}
+  - component: {fileID: 1716166031}
   m_Layer: 0
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: RayCastInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1716166027
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3681,8 +3610,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -91.253}
+--- !u!114 &1716166031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716166026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb2db5c460e67347a2c907c08337e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Key
+  interactionVerb: Pickup
+  yRotation: 0
 --- !u!1 &1727361757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,15 +3831,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733305396}
-  m_LocalRotation: {x: -0, y: -0.8244377, z: -0, w: 0.5659527}
-  m_LocalPosition: {x: -1.87, y: 1.5, z: 3.56}
+  m_LocalRotation: {x: -0, y: -0.99982524, z: -0, w: 0.018696724}
+  m_LocalPosition: {x: 7.3, y: 1.5, z: -23.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -111.063, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -177.857, z: 0}
 --- !u!54 &1733305402
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4276,7 +4220,7 @@ GameObject:
   - component: {fileID: 2140950626}
   - component: {fileID: 2140950630}
   m_Layer: 0
-  m_Name: PuzzleBase (2)
+  m_Name: PuzzleBase Top
   m_TagString: RayCastInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4352,7 +4296,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140950625}
-  m_LocalRotation: {x: -0, y: -0.56067246, z: -0, w: 0.8280377}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 1.3596985, y: 3.219, z: -27.496128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4360,8 +4304,8 @@ Transform:
   - {fileID: 286698759}
   - {fileID: 587383330}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: -68.205, z: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &2140950630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4374,6 +4318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb2db5c460e67347a2c907c08337e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Puzzle Piece
+  interactionVerb: Rotate
+  yRotation: 75
 --- !u!1 &2143841757
 GameObject:
   m_ObjectHideFlags: 0

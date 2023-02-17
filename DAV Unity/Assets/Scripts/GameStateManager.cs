@@ -17,14 +17,13 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private int maxGameTime = 10;
     
     //These are the variables related to the puzzle state
-    private bool puzzleSolved = false;
-
     [SerializeField] private List<Transform> puzzlePieces = new List<Transform>();
     [SerializeField] private List<bool> puzzlePiecesState = new List<bool>();
 
     [SerializeField] private GameObject keyGO;
-    private bool playerHasKey = false;
-    
+
+    [SerializeField] private Dictionary<string, int> playerInventory = new Dictionary<string, int>();
+
 
     private void Awake()
     {
@@ -47,6 +46,10 @@ public class GameStateManager : MonoBehaviour
         {
             puzzlePiecesState.Add(false);
         }
+        
+        playerInventory.Add("Key", 0);
+        
+        Debug.Log("We have " + playerInventory["Key"] + " Keys");
     }
 
     private void Update()
@@ -113,7 +116,6 @@ public class GameStateManager : MonoBehaviour
         int countOfSolvedPieces = 0;
         foreach (bool puzzleState in puzzlePiecesState)
         {
-            Debug.Log(countOfSolvedPieces);
             if (puzzleState == true)
             {
                 countOfSolvedPieces += 1;
@@ -121,8 +123,17 @@ public class GameStateManager : MonoBehaviour
         }
 
         if (countOfSolvedPieces >= 3)
-        {
+        { 
             keyGO.SetActive(true);
+        }
+    }
+
+    public void AddToInventory(string itemToAdd)
+    {
+        if (playerInventory.ContainsKey(itemToAdd))
+        {
+            playerInventory[itemToAdd] = playerInventory[itemToAdd] + 1;
+            Debug.Log("We have " + playerInventory[itemToAdd] + " " + itemToAdd);
         }
     }
 

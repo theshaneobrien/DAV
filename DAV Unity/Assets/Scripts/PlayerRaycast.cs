@@ -29,8 +29,15 @@ public class PlayerRaycast : MonoBehaviour
         {
             if (hitObject.collider.CompareTag("RayCastInteractable"))
             {
-                InteractWithDetectedObject(hitObject.collider.GetComponent<InteractableObject>());
+                InteractableObject theObjectWeHit = hitObject.collider.GetComponent<InteractableObject>();
+                
+                InteractWithDetectedObject(theObjectWeHit);
+                GameStateManager.Instance.GetUiManager().SetContextText("Press E to " + theObjectWeHit.GetVerb() + " the " + theObjectWeHit.GetName());
             }
+        }
+        else
+        {
+            GameStateManager.Instance.GetUiManager().SetContextText("");
         }
     }
 
